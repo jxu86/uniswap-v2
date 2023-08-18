@@ -20,19 +20,10 @@ describe("UniswapV2ERC20", () => {
     beforeEach(async () => {
         [wallet, otherWallet] = await ethers.getSigners();
         console.log('wallet address: ', wallet.address)
-        
         token = await ethers.deployContract("ERC20", [TOTAL_SUPPLY])
         console.log('token address: ', token.address)
-
-
         const accounts = config.networks.hardhat.accounts;
         console.log('accounts: ', accounts)
-        
-        // const index = 0; // first wallet, increment for next wallets
-        // console.log('accounts: ', accounts.path + `/${index}`)
-        
-        // const wallet1 = ethers.Wallet.fromMnemonic(accounts.mnemonic, accounts.path + `/${index}`);
-        // console.log('wallet1 privateKey: ', wallet1.privateKey)
         walletPrivateKey = ethers.Wallet.fromMnemonic(accounts.mnemonic, accounts.path + '/0').privateKey
     })
 
